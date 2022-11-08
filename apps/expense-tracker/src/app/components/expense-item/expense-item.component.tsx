@@ -1,11 +1,6 @@
 import ExpenseDate from '../expense-date/expense-date.component';
+import { ExpeseItemProps } from '../types/expense-item';
 import './expense-item.component.scss';
-
-type ExpeseItemProps = {
-  date: Date;
-  title: string;
-  amount: number;
-};
 
 const ExpenseItem = (props: ExpeseItemProps) => {
   const { date, title, amount } = props;
