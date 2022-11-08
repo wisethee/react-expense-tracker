@@ -1,8 +1,6 @@
-import './expense-date.component.scss';
+import { ExpenseDateProps } from '../types/expanse-date';
 
-type ExpenseDateProps = {
-  date: Date;
-};
+import './expense-date.component.scss';
 
 const ExpenseDate = (props: ExpenseDateProps) => {
   const { date } = props;
