@@ -1,5 +1,3 @@
-import { Fragment } from 'react';
-
 import ExpenseItem from '../expense-item/expense-item.component';
 import { ExpeseItemProps } from '../types/expense-item';
 
@@ -12,7 +10,7 @@ type ExpensesProps = {
 const Expenses = (props: ExpensesProps) => {
   const { expenses } = props;
   return (
-    <Fragment>
+    <div className="expenses">
       <ExpenseItem
         date={expenses[0].date}
         title={expenses[0].title}
@@ -33,7 +31,7 @@ const Expenses = (props: ExpensesProps) => {
         title={expenses[3].title}
         amount={expenses[3].amount}
       />
-    </Fragment>
+    </div>
   );
 };
 
