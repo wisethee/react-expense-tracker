@@ -1,8 +1,9 @@
 import Expenses from './components/expenses/expenses.component';
 import NewExpense from './components/new-expense/new-expense.component';
+import { Expense } from './components/types/expense';
 
 const App = () => {
-  const expenses = [
+  const expenses: Expense[] = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -24,9 +25,18 @@ const App = () => {
     },
   ];
 
+  const addExpense = (expense: Expense) => {
+    const expenseData = {
+      ...expense,
+      id: `e${Math.random()}}`,
+    };
+    expenses.push(expenseData);
+    console.log(expenseData);
+  };
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense addExpense={addExpense} />
       <Expenses expenses={expenses} />;
     </div>
   );
