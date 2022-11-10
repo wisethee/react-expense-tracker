@@ -1,5 +1,5 @@
 export type ExpeseItemProps = {
-  date: Date;
+  date: Date | string;
   title: string;
-  amount: number;
+  amount: number | string;
 };

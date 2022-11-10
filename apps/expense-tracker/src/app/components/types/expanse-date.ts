@@ -1,3 +1,3 @@
 export type ExpenseDateProps = {
-  date: Date;
+  date: Date | string;
 };

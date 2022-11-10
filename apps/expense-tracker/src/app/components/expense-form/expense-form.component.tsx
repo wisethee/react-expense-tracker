@@ -1,15 +1,17 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { ExpenseFormProps } from '../types/expense-form';
 import './expense-form.component.scss';
 
 const initialState = {
-  enteredTitle: '',
-  enteredAmount: '',
-  enteredDate: '',
+  title: '',
+  amount: '',
+  date: '',
 };
 
-const ExpenseForm = () => {
+const ExpenseForm = (props: ExpenseFormProps) => {
+  const { addExpense } = props;
   const [userInput, setUserInput] = useState(initialState);
-  const { enteredAmount, enteredDate, enteredTitle } = userInput;
+  const { amount, date, title } = userInput;
 
   /**
    * @description: update state
@@ -37,10 +39,8 @@ const ExpenseForm = () => {
    */
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    addExpense(userInput);
     resetForm();
-    console.log(userInput);
-
-    return userInput;
   };
 
   return (
@@ -50,8 +50,8 @@ const ExpenseForm = () => {
           <label>Title</label>
           <input
             type="text"
-            name="enteredTitle"
-            value={enteredTitle}
+            name="title"
+            value={title}
             onChange={formChangeHandler}
           />
         </div>
@@ -60,8 +60,8 @@ const ExpenseForm = () => {
           <label>Amount</label>
           <input
             type="number"
-            name="enteredAmount"
-            value={enteredAmount}
+            name="amount"
+            value={amount}
             onChange={formChangeHandler}
           />
         </div>
@@ -70,8 +70,8 @@ const ExpenseForm = () => {
           <label>Date</label>
           <input
             type="date"
-            name="enteredDate"
-            value={enteredDate}
+            name="date"
+            value={date}
             min={'2019-01-01'}
             max={'2022-12-31'}
             onChange={formChangeHandler}
