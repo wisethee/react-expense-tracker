@@ -1,4 +1,5 @@
 import ExpenseItem from '../expense-item/expense-item.component';
+import ExpensesFilter from '../expenses-filter/expenses-filter.component';
 import { ExpeseItemProps } from '../types/expense-item';
 
 import './expenses.component.scss';
@@ -11,6 +12,7 @@ const Expenses = (props: ExpensesProps) => {
   const { expenses } = props;
   return (
     <div className="expenses">
+      <ExpensesFilter />
       <ExpenseItem
         date={expenses[0].date}
         title={expenses[0].title}
