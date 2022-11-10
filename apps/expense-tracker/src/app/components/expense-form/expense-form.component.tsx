@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import './expense-form.component.scss';
 
 const initialState = {
@@ -8,12 +8,12 @@ const initialState = {
 };
 
 const ExpenseForm = () => {
-  // const [enteredTitle, setEnteredTitle] = useState<string>('');
-  // const [enteredAmount, setEnteredAmount] = useState('');
-  // const [enteredDate, setEnteredDate] = useState('');
-
   const [userInput, setUserInput] = useState(initialState);
+  const { enteredAmount, enteredDate, enteredTitle } = userInput;
 
+  /**
+   * @description: update state
+   */
   const formChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.currentTarget;
 
@@ -25,12 +25,35 @@ const ExpenseForm = () => {
     });
   };
 
+  /**
+   * @description: reset the form after the state is submitted
+   */
+  const resetForm = () => {
+    setUserInput(initialState);
+  };
+
+  /**
+   * @description submit form state
+   */
+  const submitHandler = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    resetForm();
+    console.log(userInput);
+
+    return userInput;
+  };
+
   return (
-    <form action="">
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" name="enteredTitle" onChange={formChangeHandler} />
+          <input
+            type="text"
+            name="enteredTitle"
+            value={enteredTitle}
+            onChange={formChangeHandler}
+          />
         </div>
 
         <div className="new-expense__control">
@@ -38,6 +61,7 @@ const ExpenseForm = () => {
           <input
             type="number"
             name="enteredAmount"
+            value={enteredAmount}
             onChange={formChangeHandler}
           />
         </div>
@@ -47,6 +71,7 @@ const ExpenseForm = () => {
           <input
             type="date"
             name="enteredDate"
+            value={enteredDate}
             min={'2019-01-01'}
             max={'2022-12-31'}
             onChange={formChangeHandler}
