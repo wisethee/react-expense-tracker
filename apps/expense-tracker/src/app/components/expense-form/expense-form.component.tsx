@@ -17,14 +17,23 @@ const ExpenseForm = (props: ExpenseFormProps) => {
    * @description: update state
    */
   const formChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.currentTarget;
-
-    setUserInput((prevState) => {
-      return {
-        ...prevState,
-        [name]: value,
-      };
-    });
+    if (event.currentTarget.valueAsDate) {
+      const { name, valueAsDate } = event.currentTarget;
+      setUserInput((prevState) => {
+        return {
+          ...prevState,
+          [name]: valueAsDate,
+        };
+      });
+    } else {
+      const { name, value } = event.currentTarget;
+      setUserInput((prevState) => {
+        return {
+          ...prevState,
+          [name]: value,
+        };
+      });
+    }
   };
 
   /**
