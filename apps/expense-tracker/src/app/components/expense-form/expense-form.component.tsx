@@ -1,11 +1,12 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { Expense } from '../types/expense';
 import { ExpenseFormProps } from '../types/expense-form';
 import './expense-form.component.scss';
 
-const initialState = {
+const initialState: Expense = {
   title: '',
   amount: '',
-  date: '',
+  date: new Date(),
 };
 
 const ExpenseForm = (props: ExpenseFormProps) => {
@@ -80,7 +81,7 @@ const ExpenseForm = (props: ExpenseFormProps) => {
           <input
             type="date"
             name="date"
-            value={date}
+            value={date.toISOString().split('T')[0]}
             min={'2019-01-01'}
             max={'2022-12-31'}
             onChange={formChangeHandler}
