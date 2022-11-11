@@ -26,12 +26,7 @@ const App = () => {
   ];
 
   const addExpense = (expense: Expense) => {
-    const expenseData = {
-      ...expense,
-      id: `e${Math.random()}}`,
-    };
-    expenses.push(expenseData);
-    console.log(expenseData);
+    console.log(expense);
   };
 
   return (

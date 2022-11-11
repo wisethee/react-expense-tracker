@@ -2,12 +2,12 @@ import { useState } from 'react';
 import Card from '../card/card.component';
 import ExpenseItem from '../expense-item/expense-item.component';
 import ExpensesFilter from '../expenses-filter/expenses-filter.component';
-import { ExpeseItemProps } from '../types/expense-item';
+import { Expense } from '../types/expense';
 
 import './expenses.component.scss';
 
 type ExpensesProps = {
-  expenses: ExpeseItemProps[];
+  expenses: Expense[];
 };
 
 const Expenses = (props: ExpensesProps) => {
@@ -25,8 +25,8 @@ const Expenses = (props: ExpensesProps) => {
         onChangeFilter={filterChangeHandler}
       />
 
-      {expenses.map(({ date, title, amount }) => (
-        <ExpenseItem date={date} title={title} amount={amount} />
+      {expenses.map(({ id, date, title, amount }) => (
+        <ExpenseItem key={id} date={date} title={title} amount={amount} />
       ))}
     </Card>
   );
