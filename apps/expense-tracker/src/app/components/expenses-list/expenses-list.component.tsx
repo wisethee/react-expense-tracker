@@ -13,11 +13,11 @@ const ExpensesList = (props: ExpensesListProps) => {
     <p className="expenses-list__fallback">No expenses found.</p>
   );
   const expensesEl = (
-    <ul className="expenses-list">
+    <div className="expenses-list">
       {filteredExpenses.map(({ id, date, title, amount }) => (
         <ExpenseItem key={id} date={date} title={title} amount={amount} />
       ))}
-    </ul>
+    </div>
   );
 
   return <div>{!filteredExpenses.length ? noExpensesEl : expensesEl}</div>;

@@ -10,7 +10,7 @@ const initialState: Expense = {
 };
 
 const ExpenseForm = (props: ExpenseFormProps) => {
-  const { addExpense } = props;
+  const { addExpense, closeExpense } = props;
   const [userInput, setUserInput] = useState(initialState);
   const { amount, date, title } = userInput;
 
@@ -37,6 +37,10 @@ const ExpenseForm = (props: ExpenseFormProps) => {
     }
   };
 
+  const cancelExpensehandler = () => {
+    closeExpense(false);
+  };
+
   /**
    * @description: reset the form after the state is submitted
    */
@@ -50,6 +54,7 @@ const ExpenseForm = (props: ExpenseFormProps) => {
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     addExpense(userInput);
+    closeExpense(false);
     resetForm();
   };
 
@@ -89,6 +94,7 @@ const ExpenseForm = (props: ExpenseFormProps) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button onClick={cancelExpensehandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
