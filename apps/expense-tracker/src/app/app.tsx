@@ -45,7 +45,38 @@ const EXPENSES_DATA: Expense[] = [
 ];
 
 const App = () => {
-  return <div>App</div>;
+  const [showModal, setShowModal] = useState(false);
+  const [expenses, setExpenses] = useState(EXPENSES_DATA);
+
+  const showModalHandler = () => {
+    setShowModal((prevState) => !prevState);
+  };
+
+  const addExpense = (expense: Expense) => {
+    const expenseID = Math.random().toFixed(2);
+    const expenseData = {
+      ...expense,
+      id: `e${expenseID}`,
+    };
+    setExpenses((prevState) => {
+      return [expenseData, ...prevState];
+    });
+  };
+
+  return (
+    <Fragment>
+      <main id="main" className="main">
+        <div className="container">
+          <NewExpense onShowModal={showModalHandler} />
+          <Expenses expenses={expenses} />
+        </div>
+      </main>
+
+      {showModal && (
+        <ExpenseModal closeModal={setShowModal} addExpense={addExpense} />
+      )}
+    </Fragment>
+  );
 };
 
 export default App;
