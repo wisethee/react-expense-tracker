@@ -12,7 +12,9 @@ const ExpenseItem = (props: ExpanseItemProps) => {
       <ExpenseDate date={date} />
       <div className="expense-item-end">
         <div className="expanse-item-title">{title}</div>
-        <div className="expanse-item-amount">£{amount.toFixed(2)}</div>
+        <div className="expanse-item-amount">
+          £{parseFloat(`${amount}`).toFixed(2)}
+        </div>
       </div>
     </div>
   );

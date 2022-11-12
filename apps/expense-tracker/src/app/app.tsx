@@ -4,7 +4,7 @@ import Expenses from './core/components/expenses/expenses';
 import NewExpense from './core/components/new-expense/new-expense';
 import { Expense } from './core/types/expense';
 
-const expenses: Expense[] = [
+const EXPENSES_DATA: Expense[] = [
   {
     id: 'e1',
     title: 'Toilet Paper',
@@ -28,9 +28,21 @@ const expenses: Expense[] = [
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
+  const [expenses, setExpenses] = useState(EXPENSES_DATA);
 
   const showModalHandler = () => {
     setShowModal((prevState) => !prevState);
+  };
+
+  const addExpense = (expense: Expense) => {
+    const expenseID = Math.random().toFixed(2);
+    const expenseData = {
+      ...expense,
+      id: `e${expenseID}`,
+    };
+    setExpenses((prevState) => {
+      return [expenseData, ...prevState];
+    });
   };
 
   return (
@@ -42,7 +54,9 @@ const App = () => {
         </div>
       </main>
 
-      {showModal && <ExpenseModal closeModal={setShowModal} />}
+      {showModal && (
+        <ExpenseModal closeModal={setShowModal} addExpense={addExpense} />
+      )}
     </Fragment>
   );
 };
