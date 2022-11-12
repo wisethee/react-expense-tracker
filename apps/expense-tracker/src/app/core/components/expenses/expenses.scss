@@ -1,3 +1,39 @@
+.expenses-start {
+  width: 100%;
+  padding: 24px;
+  background-color: #edfbf8;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.expenses-start .expenses-filter {
+  margin-bottom: 24px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.expenses-filter-control {
+  display: flex;
+  align-items: center;
+}
+
+.expenses-filter-control label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #0a8266;
+  margin-right: 24px;
+}
+
+.expenses-filter-control select {
+  padding: 8px;
+  background-color: hsla(166deg, 71%, 46%, 0.24);
+  border-radius: 6px;
+}
+
 .expenses {
   width: 100%;
   padding: 24px;
@@ -11,7 +47,7 @@
 }
 
 .expenses-header-start,
-.expensed-header-end {
+.expenses-header-end {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.09em;
@@ -25,7 +61,7 @@
   min-width: 112px;
 }
 
-.expensed-header-end {
+.expenses-header-end {
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
