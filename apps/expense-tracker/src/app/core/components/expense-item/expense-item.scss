@@ -1,0 +1,23 @@
+.expense-item {
+  display: flex;
+  padding: 8px 12px;
+  background-color: #d8f9f2;
+  border-radius: 6px;
+}
+
+.expense-item-end {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expanse-item-title {
+  letter-spacing: 0.01em;
+}
+
+.expanse-item-amount {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}

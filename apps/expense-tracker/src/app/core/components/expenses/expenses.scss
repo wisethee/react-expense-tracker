@@ -1,0 +1,32 @@
+.expenses {
+  width: 100%;
+  padding: 24px;
+  background-color: #edfbf8;
+  border-radius: 12px;
+}
+
+.expenses-header {
+  display: flex;
+  padding: 8px 12px;
+}
+
+.expenses-header-start,
+.expensed-header-end {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #0a8266;
+}
+
+.expenses-header-start {
+  display: flex;
+  min-width: 112px;
+}
+
+.expensed-header-end {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}

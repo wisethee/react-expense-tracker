@@ -16,3 +16,16 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 14px;
 }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  padding: 48px;
+  width: 640px;
+}
