@@ -1,3 +1,5 @@
+import { Fragment } from 'react';
+import ExpenseModal from './core/components/expense-modal/expense-modal';
 import Expenses from './core/components/expenses/expenses';
 import NewExpense from './core/components/new-expense/new-expense';
 import { Expense } from './core/types/expense';
@@ -26,12 +28,16 @@ const expenses: Expense[] = [
 
 const App = () => {
   return (
-    <main id="main" className="main">
-      <div className="container">
-        <NewExpense />
-        <Expenses expenses={expenses} />
-      </div>
-    </main>
+    <Fragment>
+      <main id="main" className="main">
+        <div className="container">
+          <NewExpense />
+          <Expenses expenses={expenses} />
+        </div>
+      </main>
+
+      <ExpenseModal />
+    </Fragment>
   );
 };
 
