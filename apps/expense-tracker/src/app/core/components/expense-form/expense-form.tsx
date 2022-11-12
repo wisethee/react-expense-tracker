@@ -1,6 +1,17 @@
+import { Dispatch, SetStateAction } from 'react';
 import './expense-form.scss';
 
-const ExpenseForm = () => {
+type ExpenseFormProps = {
+  closeModal: Dispatch<SetStateAction<boolean>>;
+};
+
+const ExpenseForm = (props: ExpenseFormProps) => {
+  const { closeModal } = props;
+
+  const closeModalHandler = () => {
+    closeModal(false);
+  };
+
   return (
     <form className="expense-form">
       <h1>ADD NEW EXPENSE</h1>
@@ -23,7 +34,7 @@ const ExpenseForm = () => {
 
       <div className="expense-form-actions">
         <button type="submit">Add Expense</button>
-        <button>Cancel</button>
+        <button onClick={closeModalHandler}>Cancel</button>
       </div>
     </form>
   );

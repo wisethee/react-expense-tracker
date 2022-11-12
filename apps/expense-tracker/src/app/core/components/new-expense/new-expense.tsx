@@ -1,13 +1,23 @@
 import './new-expense.scss';
 
-const NewExpense = () => {
+type NewExpenseProps = {
+  onShowModal: () => void;
+};
+
+const NewExpense = (props: NewExpenseProps) => {
+  const { onShowModal } = props;
+
+  const showModalHandler = () => {
+    onShowModal();
+  };
+
   return (
     <div className="new-expense">
       <div className="new-expense-title">
         <h1>EXPENSE TRACKER</h1>
       </div>
       <div className="new-expense-action">
-        <button>Add New Expense</button>
+        <button onClick={showModalHandler}>Add New Expense</button>
       </div>
     </div>
   );

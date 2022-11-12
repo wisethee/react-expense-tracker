@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import ExpenseModal from './core/components/expense-modal/expense-modal';
 import Expenses from './core/components/expenses/expenses';
 import NewExpense from './core/components/new-expense/new-expense';
@@ -27,16 +27,22 @@ const expenses: Expense[] = [
 ];
 
 const App = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const showModalHandler = () => {
+    setShowModal((prevState) => !prevState);
+  };
+
   return (
     <Fragment>
       <main id="main" className="main">
         <div className="container">
-          <NewExpense />
+          <NewExpense onShowModal={showModalHandler} />
           <Expenses expenses={expenses} />
         </div>
       </main>
 
-      <ExpenseModal />
+      {showModal && <ExpenseModal closeModal={setShowModal} />}
     </Fragment>
   );
 };
