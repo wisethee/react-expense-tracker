@@ -1,0 +1,65 @@
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 48px;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+.expense-form h1 {
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.expense-form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.expense-form-control label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #0a8266;
+}
+
+.expense-form-control input {
+  background-color: #edfbf8;
+  line-height: 24px;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.expense-form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expense-form-actions button {
+  box-sizing: border-box;
+  position: relative;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  overflow: visible;
+  background-color: #22cba3;
+  color: #ffffff;
+  font-size: 14px;
+}

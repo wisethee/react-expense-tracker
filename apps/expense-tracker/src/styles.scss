@@ -1,14 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
-* {
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol
+      *)) {
+  all: unset;
+  display: revert;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html {
-  font-family: 'Noto Sans', sans-serif;
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
 }
 
-body {
-  margin: 0;
-  background-color: #3f3f3f;
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+  width: 640px;
 }
